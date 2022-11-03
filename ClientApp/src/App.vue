@@ -18,9 +18,9 @@ import NavBar from "./components/NavBar.vue";
 .top-bar {
   margin: auto;
   padding: 0px;
-  position: absolute;
-  top: 0px;
-  width: 50%;
+  position: relative;
+  top: -8em;
+  width: 90%;
   background-color: blanchedalmond;
 }
 </style>

@@ -3,7 +3,7 @@ import ChartBox  from '../components/ChartBox.vue';
 </script>
 
 <template>
-<div class="container-fluid" style="background: green;">
+<div class="container-fluid" >
   <div class="chart-aria">
     <ChartBox title="PandoLogic"/>
   </div>
@@ -15,9 +15,9 @@ import ChartBox  from '../components/ChartBox.vue';
 .chart-aria {
   position: relative;
   top: 0em;
-  left: 25%;
-  width: 50%;
-  height: 50%;
+  left: 0px;
+  width: 100%;
+  height: 10em;
   background-color: beige;
 }
 </style>

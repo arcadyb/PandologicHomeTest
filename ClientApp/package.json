@@ -12,7 +12,9 @@
   "dependencies": {
     "bootstrap": "^5.2.2",
     "vue": "^3.2.41",
+    "vue-google-charts": "^1.1.0",
     "vue-router": "^4.1.6",
+    "vue3-googl-chart": "^0.0.1",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
