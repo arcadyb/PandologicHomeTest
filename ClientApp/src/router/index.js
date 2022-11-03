@@ -4,7 +4,7 @@ import TableView  from '../views/TableView.vue';
 
 const routes = [
     
-    { path: '/', name: 'ChartView', component: ChartView },
+    { path: '/', name: 'Home', component: ChartView },
     { path: '/ChartView', name: 'ChartView', component: ChartView },
     { path: '/TableView', name: 'TableView', component: TableView }
 ];
