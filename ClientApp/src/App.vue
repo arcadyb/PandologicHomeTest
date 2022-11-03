@@ -18,8 +18,8 @@ import NavBar from "./components/NavBar.vue";
 .top-bar {
   margin: auto;
   padding: 0px;
-  position: relative;
-  top: -8em;
+  position: fixed;
+  top: 0px;
   width: 90%;
   background-color: blanchedalmond;
 }
