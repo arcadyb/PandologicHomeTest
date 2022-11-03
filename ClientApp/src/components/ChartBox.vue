@@ -1,8 +1,5 @@
 <template>
-  <div style="height:100%;width: 100%;">
-
- HOMEPAGE
-    </div>
+HOME
 </template>
 
 <script>
@@ -11,7 +8,7 @@ import { computed, onMounted, onUpdated, onUnmounted } from 'vue'
 import { useStore, mapGetters } from 'vuex'
 
 export default {
-  name: 'HomePage',
+  name: 'ChartBox',
   components: {
  
   },

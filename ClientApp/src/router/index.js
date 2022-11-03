@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomePage  from '../views/HomePage.vue';
+import ChartBox  from '../components/ChartBox.vue';
 
 const routes = [
     
-    { path: '/', name: 'HomePage', component: HomePage }
+    { path: '/', name: 'ChartBox', component: ChartBox }
 ];
 
 const router = createRouter({
