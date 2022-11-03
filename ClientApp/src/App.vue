@@ -5,28 +5,22 @@ import NavBar from "./components/NavBar.vue";
 </script>
 
 <template>
+
   <div class="top-bar">
-    <NavBar msg="Jobs data" />
+    <NavBar title="PandoLogic"/>
   </div>
   <router-view />
+  
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+
 .top-bar {
+  margin: auto;
+  padding: 0px;
   position: absolute;
   top: 0px;
-  left: 25%;
   width: 50%;
+  background-color: blanchedalmond;
 }
 </style>
