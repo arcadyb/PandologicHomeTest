@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import ChartView  from '../views/ChartView.vue';
-import TableView  from '../views/TableView.vue';
+import About  from '../views/About.vue';
 
 const routes = [
     
     { path: '/', name: 'Home', component: ChartView },
     { path: '/ChartView', name: 'ChartView', component: ChartView },
-    { path: '/TableView', name: 'TableView', component: TableView }
+    { path: '/About', name: 'About', component: About }
 ];
 
 const router = createRouter({

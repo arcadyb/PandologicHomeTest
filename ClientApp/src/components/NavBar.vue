@@ -11,17 +11,17 @@ const count = ref(0)
 <template>
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">{{title}}</a>
+    <button className="navbar-toggler" onClick='{()=>{document.body.style.zoom=0.8;}}' type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color:blue"/>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto ">
         <li class="nav-item">
          <router-link :to="'/ChartView'" custom v-slot="{ navigate, href }">
           <a :href="href" @click.stop="navigate">Charts</a>
         </router-link>
         </li>
         <li class="nav-item">
-          <router-link :to="'/TableView'" custom v-slot="{ navigate, href }">
-            <a :href="href" @click.stop="navigate">Data</a>
+          <router-link :to="'/About'" custom v-slot="{ navigate, href }">
+            <a :href="href" @click.stop="navigate">About</a>
           </router-link>
         </li>
       </ul>
@@ -33,5 +33,8 @@ const count = ref(0)
 <style scoped>
 .read-the-docs {
   color: #888;
+}
+.nav-item {
+  margin-right:10%;
 }
 </style>
