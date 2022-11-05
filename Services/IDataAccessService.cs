@@ -8,6 +8,6 @@ namespace PandologicReact.Services
 {
     public interface IDataAccessService
     {
-        Task<List<DailyJobs>> GetPageGobs(int pageid);
+        Task<GChartDataTable> GetPageGobs(int pageid);
     }
 }

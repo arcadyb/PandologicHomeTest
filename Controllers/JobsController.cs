@@ -26,7 +26,7 @@ namespace PandologicReact.Controllers
             _logger = logger;
         }
         [HttpGet]
-        public async Task<IEnumerable<DailyJobs>> Get(int pageId)
+        public async Task<GChartDataTable> Get(int pageId)
         {
             try
             {

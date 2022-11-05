@@ -1,9 +1,14 @@
 <template>
     <div class="container-fluid chart" id="chartid">
-        <GChart type="LineChart"
+        <div v-if="loading">Loading...</div>
+
+        <GChart v-else 
+                :settings="{ packages: ['corechart', 'table', 'map'] }"
+                type="LineChart"
                 :data="chartData"
                 :options="chartOptions"
-                :createChart="(el, google) => new google.visualization.ComboChart(el)" />
+                :createChart="(el, google) => new google.visualization.ComboChart(el)"
+                @ready="onChartReady"/>
  
     </div>
 </template>
@@ -14,12 +19,13 @@
     import { useStore } from 'vuex';
 
     const store = useStore();
-
+    const datatable = null;
     const currentPage = computed(() => store.state.jobsModule.selectedPage);
     
     const chartData = computed(() => store.state.jobsModule.chartData) ;
-
+    console.log(chartData);
     const chartOptions = computed(() => store.state.jobsModule.chartOptions) ;
+    const loading = computed(() => store.state.jobsModule.loading) ;
     // const chartData = [
     //     ["", "Cumulative job views", "Cumulative predicted job views", "Active jobs"],
     //     ["2004/05", 165, 200, 522],
@@ -70,14 +76,23 @@
     //     },
     // };
     const result = ref(null);
-    
-     
-  
-    onMounted(() => {
-        const furl = 'Jobs/?pageId=' + 1;
-        fetch(furl)
-            .then((Response) => Response.json())
-            .then((data) => (result.value = data));
+    const chartsLib = null;
+    async function  drawTable() {
+        console.log("drawTable");
+        await store.dispatch('jobsModule/getPageJobs', { pageNum: 1 })
+    };
+
+    function onChartReady(chart, google) {
+        this.chartsLib = google;
+        this.datatable = new chartsLib.visualization.DataTable();
+    };
+    onMounted(async () => {
+       
+        //const furl = 'Jobs/?pageId=' + 1;
+        //fetch(furl)
+        //    .then((Response) => Response.json())
+        //    .then((data) => (result.value = data));
+        await store.dispatch('jobsModule/getPageJobs', { pageNum: 1 })
     });
 </script>
 

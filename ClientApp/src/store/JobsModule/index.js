@@ -52,6 +52,8 @@ const chartOptions = {
     },
 };
 const initState = {
+    loading: false,
+    error: null,
     selectedPage: 1,
     chartData: chartData,
     chartOptions: chartOptions

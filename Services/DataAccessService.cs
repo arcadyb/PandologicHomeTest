@@ -18,14 +18,19 @@ namespace PandologicReact.Services
         {
             _logger = logger;
         }
-        public async Task<List<DailyJobs>> GetPageGobs(int pageId)
+        public async Task<GChartDataTable> GetPageGobs(int pageId)
         {
+            var dt = new GChartDataTable();
             try
             {
                 using (var db = new JobsDBContext())
                 {
                     var ret = await db.Jobs.Where(x => x.LandingPageId == pageId).OrderBy(x => x.Date).ToListAsync();
-                    return ret;
+                    foreach(var rec in ret)
+                    {
+
+                    }
+                    return dt;
                 }
             }
             catch (Exception ex)
