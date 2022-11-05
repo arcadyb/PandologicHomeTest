@@ -26,65 +26,19 @@
     console.log(chartData);
     const chartOptions = computed(() => store.state.jobsModule.chartOptions) ;
     const loading = computed(() => store.state.jobsModule.loading) ;
-    // const chartData = [
-    //     ["", "Cumulative job views", "Cumulative predicted job views", "Active jobs"],
-    //     ["2004/05", 165, 200, 522],
-    //     ["2005/06", 235, 300, 599],
-    //     ["2006/07", 357, 400, 587],
-    //     ["2007/08", 439, 500, 615],
-    //     ["2008/09", 536, 600, 629],
-    //     ["2005/05", 765, 700, 522],
-    //     ["2006/06", 835, 800, 599],
-    //     ["2007/07", 957, 900, 587],
-    //     ["2008/08", 439, 500, 615],
-    //     ["2009/09", 536, 600, 629],
-    //     ["2010/07", '_', 957, '_'],
-    //     ["2011/07", '_', 957, '_'],
-    //     ["2012/07", '_', 957, '_'],
-    // ];
-
-    // const chartOptions = {
-    //     title: "Cumulative job views vs. prediction",
-    //     vAxis: { title: "Job views" },
-    //     hAxis: { title: "" },
-    //     width: "100%",
-    //     height: 300,
-    //     pointSize: 20,
-    //     seriesType: "bars",
-    //     colors: ['YellowGreen', 'DarkTurquoise', 'LightGray'],
-    //     legend: {
-    //         position: "bottom",
-    //         alignment: "center",
-    //         orientation: "vertical",
-    //     },
-
-
-    //     series: {
-    //         2: {
-    //             type: "bars"
-    //         },
-    //         1: {
-    //             pointShape: { type: "circle" },
-    //             type: "line",
-    //             lineDashStyle: [2, 2],
-    //         },
-    //         0: {
-    //             pointShape: { type: "circle" },
-    //             type: "line",
-
-    //         },
-    //     },
-    // };
+ 
     const result = ref(null);
-    const chartsLib = null;
+    const chartsLib = ref(null);
+
+
     async function  drawTable() {
         console.log("drawTable");
         await store.dispatch('jobsModule/getPageJobs', { pageNum: 1 })
     };
 
     function onChartReady(chart, google) {
-        this.chartsLib = google;
-        this.datatable = new chartsLib.visualization.DataTable();
+        //this.chartsLib = google;
+        //this.datatable = new chartsLib.visualization.DataTable();
     };
     onMounted(async () => {
        
