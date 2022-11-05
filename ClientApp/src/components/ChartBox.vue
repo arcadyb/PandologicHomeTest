@@ -9,7 +9,9 @@
 </template>
 <script setup>
     import { GChart } from "vue-google-charts";
-    import { onMounted, onUnmounted, ref } from "vue";
+    import { onMounted, onUnmounted, ref,computed } from "vue";
+    
+    let selectedPage = computed(() => store.state.jobsModule.selectedPage) ;
     const chartData = [
         ["", "Cumulative job views", "Cumulative predicted job views", "Active jobs"],
         ["2004/05", 165, 200, 522],
@@ -62,7 +64,7 @@
     const result = ref(null);
     const selectedPage = ref(1);
     onMounted(() => {
-        const furl = 'WeatherForecast/?pageId='+ selectedPage.value;
+        const furl = 'Jobs/?pageId='+ selectedPage.value;
         fetch(furl)
             .then((Response) => Response.json())
             .then((data) => (result.value = data));
