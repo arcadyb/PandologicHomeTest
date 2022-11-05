@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PandologicReact.Models;
 using PandologicReact.Services;
 
 namespace PandologicReact
@@ -29,6 +31,7 @@ namespace PandologicReact
             {
                 configuration.RootPath = "ClientApp/build";
             });
+            services.AddDbContext<JobsDBContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IDataAccessService, DataAccessService>();
         }
 
