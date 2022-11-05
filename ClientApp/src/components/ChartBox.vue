@@ -14,39 +14,44 @@
 </template>
 <script setup>
     import { GChart } from "vue-google-charts";
-    import { onMounted, onUnmounted, ref,computed } from "vue";
+    import { onMounted, onUnmounted, ref, computed , reactive } from "vue";
  
     import { useStore } from 'vuex';
 
     const store = useStore();
-    const datatable = null;
+    
     const currentPage = computed(() => store.state.jobsModule.selectedPage);
     
     const chartData = computed(() => store.state.jobsModule.chartData) ;
-    console.log(chartData);
-    const chartOptions = computed(() => store.state.jobsModule.chartOptions) ;
+    
+    const chartOptions = computed(() => store.state.jobsModule.chartOptions);
+
     const loading = computed(() => store.state.jobsModule.loading) ;
  
-    const result = ref(null);
-    const chartsLib = ref(null);
+
+    const chartsLib = reactive({});
+    let gchart = reactive({});
 
 
-    async function  drawTable() {
-        console.log("drawTable");
+    async function  updateChart() {
         await store.dispatch('jobsModule/getPageJobs', { pageNum: 1 })
+       // gchart.draw(chartData, chartOptions);
     };
 
     function onChartReady(chart, google) {
-        //this.chartsLib = google;
-        //this.datatable = new chartsLib.visualization.DataTable();
+       // this.chartsLib = google;
+        //this.datatable = new google.visualization.DataTable();
+        gchart = chart;
+        updateChart();
     };
     onMounted(async () => {
        
-        //const furl = 'Jobs/?pageId=' + 1;
-        //fetch(furl)
-        //    .then((Response) => Response.json())
-        //    .then((data) => (result.value = data));
-        await store.dispatch('jobsModule/getPageJobs', { pageNum: 1 })
+        ////const furl = 'Jobs/?pageId=' + 1;
+        ////fetch(furl)
+        ////    .then((Response) => Response.json())
+        ////    .then((data) => (result.value = data));
+        //await store.dispatch('jobsModule/getPageJobs', { pageNum: 1 })
+        //gchart.draw(chartData, chartOptions);
     });
 </script>
 
