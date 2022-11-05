@@ -1,14 +1,18 @@
 
 function ToGoogle(dtApi) {
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Task');
-    data.addColumn('number', 'Hours per Day');
+    ["", "Cumulative job views", "Cumulative predicted job views", "Active jobs"]
+    data.addColumn('string', 'Date');
+    data.addColumn('number', 'Cumulative job views');
+    data.addColumn('number', 'Cumulative predicted job views');
+    data.addColumn('number', 'Active jobs');
+
     data.addRows([
-        ['Work', 11],
-        ['Eat', 2],
-        ['Commute', 2],
-        ['Watch TV', 2],
-        ['Sleep', { v: 7, f: '7.000' }]
+        ['01', 11 , 12 , 13],
+        ['02', 22, 23 , 24 ],
+        ['03', 24 , 25, 26 ],
+        ['04', 26, 27, 28]
+        
     ]);
     console.log('ToGoogle : ' + data);
     return data;
@@ -25,9 +29,7 @@ export const Actions = {
                 const googledata = ToGoogle(data.dataTable);
 
                 commit('SET_CHART_DATA', { page: pageNum, data: googledata });
- ////           .then((Response) => Response.json())
- //           .then((data) =>{ 
- //               commit('SET_CHART_DATA', { page: pageNum, data: data });
+ 
             });
         }
         catch(error)
@@ -36,19 +38,5 @@ export const Actions = {
         }
 
     },
-    async ['getPageJobs1'] ({ commit }, { pageNum }) {
-        try {
-          commit('setLoading', true);
-          const { data } = await http('https://apiUrlExample/data');
-          commit('setData', data);
-    
-        } catch (error) {
-          commit('setError', error);
-          
-          throw error;
-        } finally {
-          commit('setLoading', false);
-        }
-      }
-    
+     
 };

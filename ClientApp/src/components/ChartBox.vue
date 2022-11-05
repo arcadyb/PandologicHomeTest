@@ -9,7 +9,6 @@
                 :options="chartOptions"
                 :createChart="(el, google) => new google.visualization.ComboChart(el)"
                 @ready="onChartReady"/>
- 
     </div>
 </template>
 <script setup>
@@ -29,30 +28,20 @@
     const loading = computed(() => store.state.jobsModule.loading) ;
  
 
-    const chartsLib = reactive({});
+   
     let gchart = reactive({});
 
 
     async function  updateChart() {
         await store.dispatch('jobsModule/getPageJobs', { pageNum: 1 })
-       // gchart.draw(chartData, chartOptions);
     };
 
     function onChartReady(chart, google) {
-       // this.chartsLib = google;
-        //this.datatable = new google.visualization.DataTable();
         gchart = chart;
         updateChart();
     };
     onMounted(async () => {
-       
-        ////const furl = 'Jobs/?pageId=' + 1;
-        ////fetch(furl)
-        ////    .then((Response) => Response.json())
-        ////    .then((data) => (result.value = data));
-        //await store.dispatch('jobsModule/getPageJobs', { pageNum: 1 })
-        //gchart.draw(chartData, chartOptions);
-    });
+   });
 </script>
 
 <style scoped>
