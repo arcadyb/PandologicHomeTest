@@ -6,14 +6,12 @@ function ToGoogle(dtApi) {
     data.addColumn('number', 'Cumulative job views');
     data.addColumn('number', 'Cumulative predicted job views');
     data.addColumn('number', 'Active jobs');
+    dtApi.forEach(element => {
+        console.log(element)
+        data.addRow([element[0], parseInt(element[1]), parseInt(element[2]), parseInt(element[3])]);
+    });
 
-    data.addRows([
-        ['01', 11 , 12 , 13],
-        ['02', 22, 23 , 24 ],
-        ['03', 24 , 25, 26 ],
-        ['04', 26, 27, 28]
-        
-    ]);
+
     console.log('ToGoogle : ' + data);
     return data;
 }

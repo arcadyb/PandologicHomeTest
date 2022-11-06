@@ -4,19 +4,8 @@ import { Getters } from './jobsGetters';
 
 const chartData = [
     ["", "Cumulative job views", "Cumulative predicted job views", "Active jobs"],
-    ["2004/05", 165, 200, 522],
-    ["2005/06", 235, 300, 599],
-    ["2006/07", 357, 400, 587],
-    ["2007/08", 439, 500, 615],
-    ["2008/09", 536, 600, 629],
-    ["2005/05", 765, 700, 522],
-    ["2006/06", 835, 800, 599],
-    ["2007/07", 957, 900, 587],
-    ["2008/08", 439, 500, 615],
-    ["2009/09", 536, 600, 629],
-    ["2010/07", '_', 957, '_'],
-    ["2011/07", '_', 957, '_'],
-    ["2012/07", '_', 957, '_'],
+    ["2004/05", 0, 0, 0]
+ 
 ];
 
 const chartOptions = {
@@ -52,7 +41,7 @@ const chartOptions = {
     },
 };
 const initState = {
-    loading: false,
+    loading: true,
     error: null,
     selectedPage: 1,
     chartData: chartData,
